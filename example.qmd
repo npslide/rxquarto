@@ -6,11 +6,11 @@ institute: Chulalongkorn University
 date: last-modified # today | last-modified
 date-format: "MMM YYYY" # see https://momentjs.com/docs/#/displaying/format/
 format:
-  cuquarto-revealjs:
+  rxquarto-revealjs:
     self-contained: false # set to true to produce a single HTML file
     transition: none # none | fade | slide | convex | concave | zoom
     background-transition: none
-  cuquarto-beamer:
+  rxquarto-beamer:
     aspectratio: 169
     mainfont: Noto Sans Thai
     monofont: Arundina Sans Mono
@@ -45,9 +45,21 @@ df
 
 น้องใหม่ เซนเซอร์ อุปนายิกาน็อกไวอากร้าไนน์นางแบบ ดัมพ์แดนซ์สติกเกอร์ ดีกรี คอนเฟิร์มสไปเดอร์คอนเทนเนอร์เฉิ่ม แบตวาริชศาสตร์ ครัวซองต์ซาร์แทงกั๊กอยุติธรรมเทคโน สแล็กฮัลโลวีนเอาต์เพรส โบรชัวร์ตุ๊ด อัลบั้มโชห่วยเคสพาสเจอร์ไรส์บอมบ์ พริตตี้กิฟท์เคลมเปโซ สติกเกอร์มะกันแฟลชติวเตอร์ เคสแจม ทรูไฮเอนด์เกมส์สลัม สุริยยาตรปอดแหกโมเต็ลฟอร์มอพาร์ทเมนท์
 
+
+## Test english
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 ## Test columns
 
 :::: columns
+
+::: {.column width="35%"}
+  * Surely a second-choice method
+  * But sometimes necessary
+  * I use this most frequently for R Markdown, which is buggy
+:::
+
 ::: {.column width="65%"}
 ::: {.incremental}
   * This is for less obvious serious problems
@@ -60,10 +72,26 @@ df
 :::
 :::
 
-::: {.column width="35%"}
-  * Surely a second-choice method
-  * But sometimes necessary
-  * I use this most frequently for R Markdown, which is buggy
+::::
+
+
+## test math with vh-center-container
+
+::: {.vh-center-container}
+
+$$
+\int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$
 :::
 
-::::
+## test long title lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+::: {.h-center-container}
+test
+:::
+
+## test link
+
+::: {.v-center-container}
+[link](https://www.google.com)
+:::

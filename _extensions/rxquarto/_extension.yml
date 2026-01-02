@@ -7,11 +7,31 @@ contributes:
     revealjs:
       slide-number: "c/t"
       theme: [revealjs/custom.scss]
+      # template-partials:
+      #   - revealjs/title-slide.html
       title-slide-attributes:
-        data-background-image: "assets/title-bg.png"
+        data-background-image: "assets/bcm-bg.png"
         data-background-size: contain
       html-math-method: katex
-      logo: "assets/logo.png"
+      logo: "assets/dept_fac-logo.png"
+      include-after: |
+        <script type="text/javascript">
+          Reveal.on('ready', event => {
+            if (event.indexh === 0) {
+              document.querySelector("div.has-logo > img.slide-logo").style.display = "none";
+            }
+          });
+          Reveal.addEventListener('slidechanged', (event) => {
+            if (event.indexh === 0) {
+              Reveal.configure({ slideNumber: null });
+              document.querySelector("div.has-logo > img.slide-logo").style.display = "none";
+            }
+            if (event.indexh === 1) { 
+              Reveal.configure({ slideNumber: 'c/t' });
+              document.querySelector("div.has-logo > img.slide-logo").style.display = null;
+            }
+          });
+        </script>
     beamer:
       include-in-header: 
         - beamer/front-matter.tex

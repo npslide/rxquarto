@@ -1,21 +1,27 @@
 /*-- scss:defaults --*/
 @import url('https://fonts.googleapis.com/css2?family=Kanit&family=Noto+Sans+Thai:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Voltaire&display=swap');
 
 // Define colors
-$ochre: #e64626;        // primary
+
+$dark-slate: #2e4c4a; // primary
+$russian-green: #5d8a69;
+$green-sheen: #7db598;
+$light-teal: #92c9c4;
+$snow-vendredi: #e4efee;
 $rxgreen: #79985F;
 $cupink: #DB5F8E;
-$charcoal: #424242;     // secondary
-$sandstone: #fcede2;    // secondary
-$jacaranda: #8f9ec9;    // tertiary
-$jaca-lite: #dde2ef;    // tertiary
-$heri-rose: #daa8a2;    // tertiary
-$eucalypt: #71a499;     // tertiary
-
+$eucalypt: #71a499; // tertiary
+$charcoal: #424242; // secondary
+$black: #163E35;
+$white: #fcfcfb;
+$almost-white: $snow-vendredi;
 
 // Body and links
-$body-color: #606060; // body text
+$title-color: $dark-slate;
+$subtitle-color: $russian-green;
+$body-color: $dark-slate; // body text
 $text-muted: lighten($body-color, 50%);
 $link-color: $eucalypt;
 $link-color-hover: lighten($link-color, 10%);
@@ -23,96 +29,229 @@ $presentation-line-height: 1.34;
 
 // Fonts
 $font-family-monospace: "Roboto Mono", monospace;
-$font-family-sans-serif: "Noto Sans Thai", sans-serif;
-$presentation-font-size-root: 35px;
-$presentation-font-smaller: 0.7rem;
-$code-block-bg: $jaca-lite;
-$code-bg: $jaca-lite;
-$code-block-border-color: $charcoal;
+$font-family-sans-serif: "Anuphan", sans-serif;
+$code-block-bg: lighten($snow-vendredi, 40%);
+$code-bg: lighten($snow-vendredi, 40%);
+$code-block-border-color: $black;
 $code-block-font-size: 0.7em;
 
-//
+// Presentation settings
 
-$heading1Size: 2.77em;
-$heading2Size: 2.11em;
-$heading3Size: 1.55em;
-$heading4Size: 1.00em;
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-font-size-root: 35px;
+$presentation-font-smaller: 0.7rem;
+$presentation-h1-font-size: 2.0em;
+$presentation-h2-font-size: 1.7em;
+$presentation-h3-font-size: 1.0em;
+$presentation-h4-font-size: 0.8em;
+$presentation-line-height: 1.34;
+$presentation-heading-font-weight: 600 !default;
+$presentation-heading-color: $dark-slate; // Headings
+$presentation-heading-line-height: 1.2;
+$presentation-heading-letter-spacing: normal;
+$presentation-heading-text-transform: none;
+$presentation-heading-text-shadow: none;
+// $presentation-heading-text-transform: uppercase !default; // from settings.scss
+$presentation-h1-text-shadow: none;
+$presentation-block-margin: 12px;
+$presentation-slide-text-align: left;
+$presentation-title-slide-text-align: center;
+
+
+// math
+$math-fontsize: 80%;
+
+// heading size
+// $heading1Size: 1.7em;
+// $heading2Size: 1.7em;
+// $heading3Size: 1.0em;
+// $heading4Size: 0.8em;
 
 // Vertical spacing between blocks of text
 $blockMargin: 30px;
 
 /*-- scss:rules --*/
 
+// color theme
 
-// Align title and subtitle to left
+.bg-color-primary {
+  background-color: $dark-slate;
+}
+
+.bg-color-secondary {
+  background-color: $russian-green;
+}
+
+.bg-color-tertiary {
+  background-color: $green-sheen;
+}
+
+// title slide setting
+
 #title-slide {
   text-align: left;
 
+  .title {
+    font-family: $presentation-heading-font;
+    border-bottom: 5px solid $link-color;
+  }
+
+  .title:after {
+    content: '';
+    display: block;
+    border-bottom: 5px solid $dark-slate;
+    margin-bottom: -5px;
+    max-width: 50%;
+  }
+
+  .subtitle {
+    color: $dark-slate;
+    font-size: 90%;
+    font-family: $presentation-heading-font;
+  }
+
+  .institute,
+  .quarto-title-affiliation {
+    font-style: italic;
+    font-size: 80%;
+  }
+
+  .author,
+  .quarto-title-author-name {
+    color: $dark-slate;
+    font-size: 85%;
+  }
+
+  .date,
+  .quarto-title-author-name {
+    color: $dark-slate;
+    font-size: 80%;
+  }
+
   .quarto-title-authors {
-    justify-content: left!important;
+    display: flex;
+    justify-content: left;
 
     .quarto-title-author {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 0em;
+      padding-right: 0em;
       width: 100%;
     }
   }
+
+  p.author::before,
+  div.quarto-title-author::before {
+    content: "";
+    display: block;
+    border: none;
+    background-color: $body-bg;
+    color: $dark-slate;
+    height: 3px;
+    margin-bottom: 1em;
+  }
+
+  p,
+  a {
+    color: $dark-slate;
+  }
 }
 
-// Edit title attributes
-#title-slide .title {
-  font-size: 2.2em!important;
-  color: $rxgreen;
+.author {
+  color: $dark-slate;
+  font-size: $presentation-h2-font-size;
+  font-family: $presentation-heading-font;
 }
 
-// Edit subtitle attributes
-#title-slide .subtitle {
-  font-size: 1.4em!important;
-  color: $charcoal;
-  width: 80%;
+.footer {
+  font-family: $presentation-heading-font;
 }
+
+.reveal .panel-tabset [role=tab] {
+  font-size: 0.8em;
+}
+
+.reveal .footer {
+  color: black;
+}
+
+.has-dark-background .footer {
+  color: white;
+}
+
+section.has-dark-background a,
+section.has-dark-background a:hover {
+  color: $almost-white;
+}
+
+// slide logo
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed !important;
+  top: 0px !important;
+  right: 12px !important;
+  max-height: 2em !important;
+  height: 100% !important;
+  width: auto !important;
+  z-index: 2 !important;
+}
+
+
+// slide number
+
+.slide-number,
+.reveal.has-logo .slide-number {
+  bottom: 14px !important;
+  right: 50px !important;
+  top: unset !important;
+  color: #777777 !important;
+  font-size: 0.7em !important;
+  font-family: $presentation-heading-font;
+}
+
 // Remove slide numbers from title slide
-.reveal .slide-number > a[href*='title-slide'] {
+.reveal .slide-number>a[href*='title-slide'] {
   display: none;
 }
 
 // Remove logo from title slide
-// .reveal .slide-logo > a[href*='title-slide'] {
-//   display: none;
-// }
+.reveal .slide-logo>a[href*='title-slide'] {
+  display: block !important;
+  max-height: 30em !important;
+  height: 100% !important;
+}
 
 // Make callout font size standard
 .reveal .slides section .callout {
-  font-size: 0.9em!important;
+  font-size: 0.9em !important;
 }
 
-// adjust headings
-.reveal .slide h3,
-.reveal .slide h4,
-.reveal .slide h5,
-.reveal .slide h6 {
-  margin-top: 1.5em;
-  color: $charcoal;
+// Math
+.MathJax {
+  font-size: $math-fontsize !important;
 }
 
 // adjust headings
 .reveal .slide h1,
 .reveal .slide h2 {
-  color: $rxgreen;
+  color: $title-color;
 }
 
-// code output
-.reveal pre code {
-  // background-color: #DAA8A2;
-  color:#e64626;
-  padding: 32px;
+.reveal .slide h3,
+.reveal .slide h4,
+.reveal .slide h5,
+.reveal .slide h6 {
+  margin-top: 1.5em;
+  color: $eucalypt;
 }
 
 // aside footnote setting
 .reveal .slide aside .aside-footnotes {
   font-size: 1rem;
 }
-.reveal .slide aside, .reveal .slide div.aside {
+
+.reveal .slide aside,
+.reveal .slide div.aside {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -122,4 +261,60 @@ $blockMargin: 30px;
 
 .reveal .slide sup {
   font-size: 1rem;
+}
+
+// code output
+.reveal pre code {
+  // background-color: #DAA8A2;
+  color: #e64626;
+  padding: 32px;
+}
+
+// special setting
+
+.center-x {
+  text-align: center;
+}
+
+.center-xy {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateY(-50%), translateX(-50%);
+  transform: translateY(-50%), translateX(-50%);
+}
+
+// Vertically Centering Elements
+.v-center-container {
+  display: flex !important;
+  align-items: center;
+  height: 90%;
+}
+
+// Horizontally Centering Elements
+.h-center-container {
+  text-align: center;
+}
+
+// Vertically and Horizontal Centering Elements
+.vh-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  text-align: center;
+}
+
+.reveal .contentbox {
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);
+  background-color: #99BC85;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  width: 300px;
+  margin: auto;
+  font-size: 2vw
 }
