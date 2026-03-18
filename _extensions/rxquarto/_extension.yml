@@ -13,6 +13,9 @@ contributes:
         data-background-image: "assets/bcm-bg.png"
         data-background-size: contain
       html-math-method: katex
+      scrollable: false
+      code-fold: true
+      code-overflow: scroll
       logo: "assets/dept_fac-logo.png"
       include-after: |
         <script type="text/javascript">
